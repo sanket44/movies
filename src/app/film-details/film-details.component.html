@@ -1,0 +1,36 @@
+<div class="card container-sm" style="width: 60rem;background-color: #46a3c1;text-emphasis-color: #6c6d71">
+  <div class="row card-body">
+    <h4 class="fw-bolder">{{filmsDetails?.title}}</h4>
+    <div class="col-2">
+      <p class="card-text">Director :</p>
+      <p class="card-text">Producer:</p>
+      <p class="card-text">Release Date:</p>
+      <p class="card-text">Run Time:</p>
+      <p class="card-text">Description: </p>
+
+    </div>
+    <div class="col-10">
+      <p class="card-text">{{filmsDetails?.director}}</p>
+      <p class="card-text">{{filmsDetails?.producer}}</p>
+      <p class="card-text">{{filmsDetails?.release_date}}</p>
+      <p class="card-text">{{filmsDetails?.running_time}}</p>
+      <p class="card-text">{{filmsDetails?.description}}</p>
+    </div>
+    <div class="col-2">
+      <p class="card-text">Rating:</p>
+    </div>
+    <div class="col-10">
+      <p class="card-text">
+        <app-star-rating [ShowDiv]="false" [rating]="tostring(filmsDetails?.rt_score)"></app-star-rating>
+      </p>
+    </div>
+    <a class="btn btn-link" [routerLink]="['/filmEdit',filmsDetails?.id]" *ngIf="getRole==2">
+      <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+    </a>
+    <div class="text-center">
+      <button type="submit" class="btn  btn-dark" *ngIf="getRole==2" (click)="deleteFilm()">Delete</button>
+    </div>
+  </div>
+
+</div>
+

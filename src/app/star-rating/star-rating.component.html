@@ -1,0 +1,28 @@
+
+<div [title]="rating" *ngIf="ShowDiv==true">
+      <span class="fa fa-star"
+            [ngClass]="{'blur' : toggle1, 'dark': !toggle1}" (click)="starClicked(20)"></span>
+  <span class="fa fa-star"
+        [ngClass]="{'blur' : toggle2, 'dark': !toggle2}" (click)="starClicked(40)"></span>
+  <span class="fa fa-star"
+        [ngClass]="{'blur' : toggle3, 'dark': !toggle3}" (click)="starClicked(60)"></span>
+  <span class="fa fa-star"
+        [ngClass]="{'blur' : toggle4, 'dark': !toggle4}" (click)="starClicked(80)"></span>
+  <span class="fa fa-star"
+        [ngClass]="{'blur' : toggle5, 'dark': !toggle5}" (click)="starClicked(100)"></span>
+</div>
+
+
+<div [title]="rating" *ngIf="ShowDiv==false">
+      <span class="fa fa-star"
+            [ngClass]="{'blur' : toggle1, 'dark': !toggle1}" ></span>
+  <span class="fa fa-star"
+        [ngClass]="{'blur' : toggle2, 'dark': !toggle2}" ></span>
+  <span class="fa fa-star"
+        [ngClass]="{'blur' : toggle3, 'dark': !toggle3}" ></span>
+  <span class="fa fa-star"
+        [ngClass]="{'blur' : toggle4, 'dark': !toggle4}" ></span>
+  <span class="fa fa-star"
+        [ngClass]="{'blur' : toggle5, 'dark': !toggle5}" ></span>
+</div>
+
