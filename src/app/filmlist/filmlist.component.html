@@ -1,43 +1,91 @@
 <div>
-
-  <table class="table table-bordered table-hover table-condensed">
-    <thead>
-    <tr>
-      <th title="Field #2">Title</th>
-      <th title="Field #6">Director</th>
-      <th title="Field #8" style="text-align: center">Release Date</th>
-      <th title="Field #9" style="text-align: center">Running Time</th>
-      <th title="Field #10" style="text-align: center">Rt-score</th>
-      <th title="Field #11" style="text-align: center" *ngIf="getRole==2">
-          <button  class="btn btn-danger" (click)="deleteMovie()">Delete</button>
-      </th>
-      <th title="Field #12"style="text-align: center"  *ngIf="getRole==2">
-        <input type="checkbox"  (change)="bulk($event)" [checked]="isAllChecked">
-      </th>
-
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let f of films">
-      <td><a [routerLink]="['/filmDetails',f.id]">{{f.title}}</a></td>
-      <td>{{f.director}}</td>
-      <td align="right">{{f.release_date}}</td>
-      <td align="right">{{f.running_time}}</td>
-      <td align="center">
-        <app-star-rating [ShowDiv]="false" [rating]="tostring(f.rt_score)">
-
-        </app-star-rating>
-      </td>
-      <td align="center" *ngIf="getRole==2">
-        <a class="btn btn-link" [routerLink]="['/filmEdit',f?.id]">
-          <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
-        </a>
-      </td>
-      <td align="center" *ngIf="getRole==2" >
-        <input type="checkbox"  style="margin-top: 10px" [value]="f.id.toString()" [checked]="f.checked" (change)="onCheckChange($event)">
-      </td>
-
-    </tr>
-    </tbody>
-  </table>
+  <div class="card-deck">
+    <div class="row">
+      <div class="col">
+           Select All
+      </div>
+      <div class="col">
+        <input type="checkbox" (change)="bulk($event)" [checked]="isAllChecked">
+      </div>
+    </div>
+    <div class="card" *ngFor="let f of films">
+      <div class="card-body">
+        <h5 class="card-title"><a [routerLink]="['/filmDetails',f.id]">{{f.title}}</a></h5>
+        <div class="row">
+          <div class="col">
+            Director
+          </div>
+          <div class="col">
+            {{f.director}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            Release Date
+          </div>
+          <div class="col">
+            {{f.running_time}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            Rating
+          </div>
+          <div class="col">
+            <app-star-rating [ShowDiv]="false" [rating]="tostring(f.rt_score)">
+            </app-star-rating>
+          </div>
+        </div>
+        <div class="row" *ngIf="getRole==2">
+          <div class="col">
+            <a class="btn btn-link" [routerLink]="['/filmEdit',f?.id]">
+              <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="col">
+            <input type="checkbox" style="margin-top: 10px" [value]="f.id.toString()" [checked]="f.checked"
+                   (change)="onCheckChange($event)">
+          </div>
+        </div>
+        <p class="card-text"><small class="text-muted">𝓜𝓸𝓿𝓲𝓮𝓜𝓪𝓷𝓲𝓪</small></p>
+      </div>
+    </div>
+  </div>
+  <!--  <table class="table table-bordered table-hover table-condensed">-->
+  <!--    <thead class="thead-dark">-->
+  <!--    <tr>-->
+  <!--      <th scope="col">Title</th>-->
+  <!--      <th scope="col">Director</th>-->
+  <!--      <th scope="col" style="text-align: center">Release Date</th>-->
+  <!--      <th scope="col" style="text-align: center">Running Time</th>-->
+  <!--      <th scope="col" style="text-align: center">Rt-score</th>-->
+  <!--      <th scope="col" style="text-align: center" *ngIf="getRole==2">-->
+  <!--          <button  class="btn btn-danger" (click)="deleteMovie()">Delete</button>-->
+  <!--      </th>-->
+  <!--      <th scope="col"style="text-align: center"  *ngIf="getRole==2">-->
+  <!--        <input type="checkbox"  (change)="bulk($event)" [checked]="isAllChecked">-->
+  <!--      </th>-->
+  <!--    </tr>-->
+  <!--    </thead>-->
+  <!--    <tbody>-->
+  <!--    <tr *ngFor="let f of films">-->
+  <!--      <td><a [routerLink]="['/filmDetails',f.id]">{{f.title}}</a></td>-->
+  <!--      <td>{{f.director}}</td>-->
+  <!--      <td align="right">{{f.release_date}}</td>-->
+  <!--      <td align="right">{{f.running_time}}</td>-->
+  <!--      <td align="center">-->
+  <!--        <app-star-rating [ShowDiv]="false" [rating]="tostring(f.rt_score)">-->
+  <!--        </app-star-rating>-->
+  <!--      </td>-->
+  <!--      <td align="center" *ngIf="getRole==2">-->
+  <!--        <a class="btn btn-link" [routerLink]="['/filmEdit',f?.id]">-->
+  <!--          <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>-->
+  <!--        </a>-->
+  <!--      </td>-->
+  <!--      <td align="center" *ngIf="getRole==2" >-->
+  <!--        <input type="checkbox"  style="margin-top: 10px" [value]="f.id.toString()" [checked]="f.checked" (change)="onCheckChange($event)">-->
+  <!--      </td>-->
+  <!--    </tr>-->
+  <!--    </tbody>-->
+  <!--  </table>-->
 </div>
