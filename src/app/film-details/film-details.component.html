@@ -1,7 +1,9 @@
-<div class="card container-sm" style="width: 60rem;background-color: #46a3c1;text-emphasis-color: #6c6d71">
+
+
+<div class="card " style="background-color: #46a3c1;text-emphasis-color: #6c6d71">
   <div class="row card-body">
     <h4 class="fw-bolder">{{filmsDetails?.title}}</h4>
-    <div class="col-2">
+    <div class="col-4">
       <p class="card-text">Director :</p>
       <p class="card-text">Producer:</p>
       <p class="card-text">Release Date:</p>
@@ -9,17 +11,17 @@
       <p class="card-text">Description: </p>
 
     </div>
-    <div class="col-10">
+    <div class="col-8">
       <p class="card-text">{{filmsDetails?.director}}</p>
       <p class="card-text">{{filmsDetails?.producer}}</p>
       <p class="card-text">{{filmsDetails?.release_date}}</p>
       <p class="card-text">{{filmsDetails?.running_time}}</p>
       <p class="card-text">{{filmsDetails?.description}}</p>
     </div>
-    <div class="col-2">
+    <div class="col-4">
       <p class="card-text">Rating:</p>
     </div>
-    <div class="col-10">
+    <div class="col-8">
       <p class="card-text">
         <app-star-rating [ShowDiv]="false" [rating]="tostring(filmsDetails?.rt_score)"></app-star-rating>
       </p>
