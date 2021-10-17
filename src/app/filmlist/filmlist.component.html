@@ -2,7 +2,7 @@
   <div class="card-deck">
     <div class="row" *ngIf="getRole==2">
       <div class="col">
-           Select All
+        <button  class="btn btn-danger" (click)="deleteMovie()">Delete</button>
       </div>
       <div class="col">
         <input type="checkbox" (change)="bulk($event)" [checked]="isAllChecked">
